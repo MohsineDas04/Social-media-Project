@@ -1,0 +1,61 @@
+* {
+   padding: 0;
+   margin: 0;
+}
+
+/* #addposticon:hover #addpost{
+   color: blue;
+} */
+
+#addpostdiv {
+   gap: 12px;
+   position: fixed;
+   bottom: 15px;
+   right: 15px;
+   align-items: center;
+   justify-content: center;
+   width: fit-content;
+   transition-duration: 600ms;
+   display: flex;
+   z-index: 100;
+}
+#TagsDiv {
+   display: grid;
+   gap: 12px;
+   margin: 15px 0 0 0;
+   grid-template-columns: repeat(auto-fit, minmax(150px, auto));
+   justify-items: center;
+   align-content: center;
+}
+#TagsDiv h3 {
+   padding: 3px 14px;
+   background-color: rgb(67, 207, 250);
+   font-weight: 600;
+   font-family: Arial, Helvetica, sans-serif;
+   font-size: medium;
+   width: fit-content;
+   border-radius: 11111px;
+}
+input {
+   outline: none;
+   border: none;
+}
+
+
+
+/* HTML: <div class="loader"></div> */
+.loader {
+  width: 60px;
+  aspect-ratio: 4;
+  --c:#000 90%,#0000;
+  background: 
+    radial-gradient(circle closest-side at left  6px top 50%,var(--c)),
+    radial-gradient(circle closest-side                     ,var(--c)),
+    radial-gradient(circle closest-side at right 6px top 50%,var(--c));
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  animation: l4 1s infinite alternate;
+}
+@keyframes l4 {
+    to{width:25px;aspect-ratio: 1}
+}

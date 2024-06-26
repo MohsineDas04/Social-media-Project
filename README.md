@@ -1,0 +1,2 @@
+# Social-Media-Webapp Project
+ I recently developed a social media web app using HTML, CSS, JavaScript, and the Axios library for API integration. Leveraging Bootstrap for a sleek and responsive design, I focused on creating a user-friendly experience. This project allowed me to enhance my front-end development skills and gain practical experience in API integration. I am eager to apply these skills to future projects and continue advancing in the field of web development.
