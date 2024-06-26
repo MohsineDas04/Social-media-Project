@@ -9,8 +9,8 @@ function InfiniteScrolliong() {
       const endOfPage = window.innerHeight + window.pageYOffset >= document.body.offsetHeight;
       if (endOfPage && !isLoading) {
          isLoading = true;
-         console.log("Reached the bottom of the page!");
-         console.log(LimitPPage);
+         // console.log("Reached the bottom of the page!");
+         // console.log(LimitPPage);
          LimitPPage = LimitPPage + 10;
          ShowPosts();
          return LimitPPage;
@@ -21,7 +21,7 @@ InfiniteScrolliong();
 //// Infinite Scroll ////
 
 // drawer = 10;
-// console.log(drawer);
+
 
 function emptyingInp() {
    AllInputs.forEach((input) => {
@@ -32,7 +32,7 @@ emptyingInp();
 function ShowPosts() {
    // InfiniteScrolliong();
    // console.log(LimitPPage);
-   console.log(LimitPPage);
+   // console.log(LimitPPage);
    if (showdiv.innerHTML !== "") {
        showdiv.innerHTML += `
    <div style="position: relative; margin: auto;">
@@ -60,13 +60,13 @@ function ShowPosts() {
       .then(function (res) {
          setTimeout(() => {
             showdiv.innerHTML = "";
-            console.log(res);
+            // console.log(res);
             let data = res.data.data;
 
             showdiv.innerHTML = "";
             for (let i = 0; i < data.length; i++) {
                let usernames = data[i].author.username;
-               console.log(usernames);
+               // console.log(usernames);
 
                let profile_image = data[i].author.profile_image;
                let PostTitle = data[i].title;
@@ -77,7 +77,7 @@ function ShowPosts() {
                let id = data[i].id;
                let PostAuthorId = data[i].author.id;
                let PostAuthorusername = localStorage.getItem("username");
-               console.log(` this from lstorage : ${PostAuthorusername}`);
+               // console.log(` this from lstorage : ${PostAuthorusername}`);
                let userId = parseInt(localStorage.getItem("UserId"));
 
                let DeleteEditBtns = "";
@@ -162,7 +162,7 @@ function ShowPosts() {
 function ShowPosts1() {
    // InfiniteScrolliong();
    // console.log(LimitPPage);
-   console.log(LimitPPage);
+   // console.log(LimitPPage);
    
       showdiv.innerHTML = `
    <div style="position: relative; margin: auto;">
@@ -180,13 +180,13 @@ function ShowPosts1() {
       .then(function (res) {
          setTimeout(() => {
             showdiv.innerHTML = "";
-            console.log(res);
+            // console.log(res);
             let data = res.data.data;
 
             showdiv.innerHTML = "";
             for (let i = 0; i < data.length; i++) {
                let usernames = data[i].author.username;
-               console.log(usernames);
+               // console.log(usernames);
 
                let profile_image = data[i].author.profile_image;
                let PostTitle = data[i].title;
@@ -197,7 +197,7 @@ function ShowPosts1() {
                let id = data[i].id;
                let PostAuthorId = data[i].author.id;
                let PostAuthorusername = localStorage.getItem("username");
-               console.log(` this from lstorage : ${PostAuthorusername}`);
+               // console.log(` this from lstorage : ${PostAuthorusername}`);
                let userId = parseInt(localStorage.getItem("UserId"));
 
                let DeleteEditBtns = "";
@@ -282,7 +282,7 @@ function ShowPosts1() {
 ShowPosts();
 function ShowTags() {
    axios.get("https://tarmeezacademy.com/api/v1/tags").then((restags) => {
-      console.log(restags);
+      // console.log(restags);
       tag1 = restags.data.data[0].name;
       tag2 = restags.data.data[1].name;
       tag3 = restags.data.data[2].name;
@@ -312,16 +312,16 @@ function UserLogin() {
       .then(function (response) {
          setTimeout(() => {
             LoginProcessStatus.innerHTML = "";
-            console.log(response);
+            // console.log(response);
             let data = response.data;
-            console.log(data);
+            // console.log(data);
             token = data.token;
             localStorage.setItem("token", token);
             let username = data.user.username;
             localStorage.setItem("username", username);
             let userId = data.user.id;
             localStorage.setItem("UserId", userId);
-            console.log(username);
+            // console.log(username);
             let PostCount = data.user.posts_count;
             localStorage.setItem("PostCount", PostCount);
             let CommentsCount = data.user.comments_count;
@@ -371,19 +371,19 @@ function UserLogin() {
 
 function tokenretrieve() {
    let token2 = localStorage.getItem("token");
-   console.log("token recovered : " + token2);
+   // console.log("token recovered : " + token2);
    return token2;
 }
 
 function userDataRetrieve() {
    let LogUserData = [];
    LogUserData.push(JSON.parse(localStorage.getItem("UserData")));
-   console.log(LogUserData[0].name);
+   // console.log(LogUserData[0].name);
 }
 
 function UserLogout() {
    let tokenf = tokenretrieve();
-   console.log(tokenf);
+   // console.log(tokenf);
    axios
       .post(
          "https://tarmeezacademy.com/api/v1/logout",
@@ -396,7 +396,7 @@ function UserLogout() {
          }
       )
       .then((LogoutRes) => {
-         console.log(LogoutRes);
+         // console.log(LogoutRes);
          LRL.innerHTML = `
           <button type="button" class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#LoginF">Login</button>
           <button type="button" class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#RegisterF">Register</button>
@@ -408,17 +408,17 @@ function UserLogout() {
          localStorage.clear();
       })
       .catch((error) => {
-         console.log("You're Not logged In");
+         // console.log("You're Not logged In");
       });
 }
 
 function CreatePost2() {
    let imgtst = CPImage.files[0];
-   console.log(`this is the image : ${imgtst}`);
-   console.log(CPBody.value);
+   // console.log(`this is the image : ${imgtst}`);
+   // console.log(CPBody.value);
    //
    let tokenf = tokenretrieve();
-   console.log(tokenf);
+   // console.log(tokenf);
 
    let formDatas = new FormData();
    formDatas.append("title", CPTitle.value);
@@ -444,7 +444,7 @@ function CreatePost2() {
       .then((CPRes) => {
          setTimeout(() => {
             PostingStatus.innerHTML = "";
-            console.log(CPRes);
+            // console.log(CPRes);
             ShowPosts1();
             PostingStatus.innerHTML = `Post has been created successfully!`;
             setTimeout(() => {
@@ -456,7 +456,7 @@ function CreatePost2() {
          }, 1500);
       })
       .catch((error) => {
-         console.log(error);
+         // console.log(error);
          PostingStatus.innerHTML = `${error.response.data.message} Please try another one`;
          setTimeout(() => {
             PostingStatus.innerHTML = "";
@@ -503,7 +503,7 @@ function RegisterUser() {
          .then((RegisterRes) => {
             setTimeout(() => {
                RegisteringStatus.innerHTML = "";
-               console.log(RegisterRes);
+               // console.log(RegisterRes);
                RegisteringStatus.innerHTML = "User registered successfully";
                setTimeout(() => {
                   RegisteringStatus.innerHTML = "";
@@ -513,7 +513,7 @@ function RegisterUser() {
             }, 1500);
          })
          .catch((error) => {
-            console.log(error);
+            // console.log(error);
             RegisteringStatus.innerHTML = `${error.response.data.message} Fix errors and try again`;
             setTimeout(() => {
                RegisteringStatus.innerHTML = "";
@@ -525,7 +525,7 @@ function RegisterUser() {
 function AddComment(PostId) {
    let id = PostId;
    let tokenf = tokenretrieve();
-   console.log(`this is the id : ${id}`);
+   // console.log(`this is the id : ${id}`);
 
    PostAddComm.onclick = function () {
       PostAddComm.setAttribute("disabled", "disabled");
@@ -557,7 +557,7 @@ function AddComment(PostId) {
                setTimeout(() => {
                   PostAddComm.removeAttribute("disabled");
                }, 5000);
-               console.log(commentAddRes);
+               // console.log(commentAddRes);
                ShowPosts1();
                emptyingInp();
                takeUserData();
@@ -572,7 +572,7 @@ function AddComment(PostId) {
             setTimeout(() => {
                PostAddComm.removeAttribute("disabled");
             }, 500);
-            console.log(error);
+            // console.log(error);
             if (error.response.data.message === "Unauthenticated.") {
                CommentingStatus.innerHTML = `You must login to comment on the post! <span type="button" data-bs-toggle="modal" data-bs-target="#LoginF">Login</span> <br>
                Don't have an account ? <span type="button" data-bs-toggle="modal" data-bs-target="#RegisterF">Register</span>`;
@@ -610,9 +610,9 @@ function ShowComments(PostId) {
       .then((ShowCommRes) => {
          setTimeout(() => {
             commentShowField.innerHTML = "";
-            console.log(ShowCommRes);
+            // console.log(ShowCommRes);
             let comments = ShowCommRes.data.data.comments;
-            console.log(comments);
+            // console.log(comments);
             if (comments.length === 0) {
                commentShowField.innerHTML = `
             <h1>No comments Found &#128546</h1>
@@ -630,7 +630,7 @@ function ShowComments(PostId) {
          }, 1500);
       })
       .catch((error) => {
-         console.log(error);
+         // console.log(error);
       });
 }
 
@@ -664,35 +664,13 @@ function LoginStatus() {
 }
 LoginStatus();
 
-// function addingfcomment() {
-//    let idtouse = AddComment();
 
-//    axios
-//       .post(
-//          `https://tarmeezacademy.com/api/v1/posts/${idtouse}/comments`,
-//          {
-//             body: commentAdding.value,
-//          },
-//          {
-//             headers: {
-//                // The headers object should be used here
-//                Authorization: `Bearer ${tokenf}`,
-//             },
-//          }
-//       )
-//       .then((commentAddRes) => {
-//          console.log(commentAddRes);
-//       })
-//       .catch((error) => {
-//          console.log(error);
-//       });
-// }
 
 function EditPostBtnClicked(PostId, PostBody, PostTitle) {
    let id = PostId;
    let body = PostBody;
    let title = PostTitle;
-   console.log(id, body, title);
+   // console.log(id, body, title);
    document.getElementById("EditPostTitleInp").value = title;
    document.getElementById("EditPostBodyInp").value = body;
 
@@ -727,7 +705,7 @@ function EditPostBtnClicked(PostId, PostBody, PostTitle) {
          .then((EditRes) => {
             setTimeout(() => {
                EditPostStatus.innerHTML = "";
-               console.log(EditRes);
+               // console.log(EditRes);
                EditPostStatus.innerHTML = "Post Has been Edited Successfully";
                ShowPosts1();
                setTimeout(() => {
@@ -738,7 +716,7 @@ function EditPostBtnClicked(PostId, PostBody, PostTitle) {
             }, 1500);
          })
          .catch((error) => {
-            console.log(error.response.data.error_message);
+            // console.log(error.response.data.error_message);
             if (error.response.data.error_message === "The current user doesn't own the post") {
                EditPostStatus.innerHTML = "You do not have access to modify/delete this post.";
             }
@@ -751,10 +729,10 @@ function EditPostBtnClicked(PostId, PostBody, PostTitle) {
 
 function DeletePostBtnClicked(PostId) {
    let id = PostId;
-   console.log(id);
+   // console.log(id);
 
    ConfirmDeletePost.onclick = function () {
-      console.log("hihihi");
+      // console.log("hihihi");
       let tokenToDelete = localStorage.getItem("token");
       DeletePostStatus.innerHTML = `
    <div style="position: relative; margin: auto;">
@@ -774,7 +752,7 @@ function DeletePostBtnClicked(PostId) {
          .then((DeleteRes) => {
             setTimeout(() => {
                DeletePostStatus.innerHTML = "";
-               console.log(DeleteRes);
+               // console.log(DeleteRes);
                DeletePostStatus.innerHTML = "Post Has been deleted Successfully";
                ShowPosts1();
                setTimeout(() => {
@@ -784,7 +762,7 @@ function DeletePostBtnClicked(PostId) {
             }, 1500);
          })
          .catch((error) => {
-            console.log(error);
+            // console.log(error);
             if (error.response.data.error_message === "The current user doesn't own the post") {
                DeletePostStatus.innerHTML = "You do not have access to modify/delete this post.";
             }
@@ -802,17 +780,17 @@ function takeUserData() {
    axios
       .get(`https://tarmeezacademy.com/api/v1/users/${localStorage.getItem("UserId")}`)
       .then((UserRes) => {
-         console.log(UserRes);
+         // console.log(UserRes);
          let data = UserRes.data.data;
-         console.log(data);
+         // console.log(data);
          let comments = data.comments_count;
          let posts = data.posts_count;
-         console.log(comments, posts);
+         // console.log(comments, posts);
          localStorage.setItem("CommentCount", comments);
          localStorage.setItem("PostCount", posts);
       })
       .catch((error) => {
-         console.log(error);
+         // console.log(error);
       });
 }
 

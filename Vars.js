@@ -1,17 +1,17 @@
 let AllInputs = document.querySelectorAll("input");
-console.log(AllInputs);
+// console.log(AllInputs);
 let commentShowField = document.getElementById("commentShowField");
 let NavBar = document.getElementById("NavBar");
 let showdiv = document.getElementById("PostsDiv");
 let addpostdiv = document.getElementById("addpostdiv");
 let emailtologin = document.getElementById("emailtolog");
 let passtologin = document.getElementById("passtolog");
-console.log(emailtolog, passtolog);
+// console.log(emailtolog, passtolog);
 let token;
 let tagsDiv = document.getElementById("TagsDiv");
 let LoginProcessStatus = document.getElementById("ifissue");
 let LRL = document.getElementById("LRL");
-console.log(tagsDiv);
+// console.log(tagsDiv);
 showdiv.innerHTML = "";
 let PostingStatus = document.getElementById("ifissue2");
 //
@@ -20,8 +20,8 @@ let CPTitle = document.getElementById("PostTitleInp");
 let CPBody = document.getElementById("PostBodyInp");
 let CPImage = document.getElementById("PostImageInp");
 
-console.log(CPBody);
-console.log(CPImage);
+// console.log(CPBody);
+// console.log(CPImage);
 //
 // Login modal close behavior
 let LoginModal = document.getElementById("LoginF");
@@ -37,15 +37,15 @@ let EmailR = document.getElementById("EmailR");
 let RegisteringStatus = document.getElementById("ifissue3");
 let RegisteringModalClose = document.getElementById("RegisteringModalClose");
 
-console.log(
-   UsernameR,
-   PasswordR,
-   ProfilePictureR,
-   FullnameR,
-   EmailR,
-   RegisteringStatus,
-   RegisteringModalClose
-);
+// // console.log(
+//    UsernameR,
+//    PasswordR,
+//    ProfilePictureR,
+//    FullnameR,
+//    EmailR,
+//    RegisteringStatus,
+//    RegisteringModalClose
+// );
 //
 // AddingComment
 let commentAdding = document.getElementById("CommentAdding");
@@ -104,11 +104,11 @@ let DeletePostStatus = document.getElementById("ifissueDeleting");
 // }
 /// Functions
 
-console.log(ConfirmDeletePost);
+// console.log(ConfirmDeletePost);
 
 let ShowEditDeleteBtns = document.getElementById("ShowEditDeleteBtns");
 
-console.log(CPBody);
+// console.log(CPBody);
 
 let ProfileLinkShow = document.getElementById("ProfileLinkShow");
 
